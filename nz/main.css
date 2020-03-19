@@ -29,5 +29,9 @@ header nav img{
 
 a:link, a:visited{
     color: black;
-    font-size: 0.8em;
+}
+
+header nav address{
+    font-size: 0.9em;
+    font-style: italic;
 }
