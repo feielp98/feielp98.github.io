@@ -1,14 +1,15 @@
-body{
+body {
     /*ein Kommentar*/
     max-width: 1280px;
     margin: auto;
     font-family: Arial;
 }
-header{
+
+header {
     text-align: center;
 }
 
-header p{
+header p {
     font-size: 0.8em;
     font-weight: bold;
     text-align: right;
@@ -16,7 +17,9 @@ header p{
     margin-top: -2em;
 }
 
-.white, .white a:link, .white a:visited{
+.white,
+.white a:link,
+.white a:visited {
     color: white;
 }
 
