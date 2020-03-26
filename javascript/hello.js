@@ -70,14 +70,22 @@ console.log(a);
 
 // Schleifen: for Schleife
 for (let i=0; i<10; i++) {
-    console.log('Schleife ${i}');
+    console.log(`Schleife ${i}`);
 }
 
 for (let j = 0; j < participants.length; j++) {
     const participant = participants[j];
-    console.log('Teilnehmer*in ${j} ${participat}');
+    console.log(`Teilnehmer*in ${j} ${participant}`);
 }
 
 participants.forEach(participant => {
     console.log(`Teilnehmer*in ${participant}`);
 });
+
+// Funktionen
+function showAge(birthYear){
+    console.log(`Du bist ca. ${2020 - birthYear} Jahre alt.`);
+}
+
+showAge(1998);
+showAge(1970);
