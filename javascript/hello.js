@@ -68,3 +68,7 @@ console.log(a);
 //     console.log("leider unter 18");
 // }
 
+// Schleifen: for Schleife
+for (let i=0; i<10; i++) {
+    console.log('Schleife ${i}');
+}
