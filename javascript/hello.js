@@ -110,9 +110,10 @@ birthYears.forEach(year => {
 //     {firstname: "Max", lastname: "Mustermann", birthYear: 1967}
 // ];
 
-console.log(users);
+// console.log(users);
 
-users.forEach(user => {
-    console.log(`${user.firstname} ist oder wird heuer ${calcAge(user.birthYear)} Jahre alt.`)
+// users.forEach(user => {
+//     console.log(`${user.firstname} ist oder wird heuer ${calcAge(user.birthYear)} Jahre alt.`)
     
-});
+// });
+
