@@ -58,9 +58,9 @@ a++;
 // integer um einen Wert erhöhen
 console.log(a);
 
-let myAge = prompt("Wie alt bist du?");
-console.log('Du bist ${myAge} Jahre alt');
-console.log('über 18? ${myAge > 18}');
+// let myAge = prompt("Wie alt bist du?");
+// console.log("Du bist ${myAge} Jahre alt");
+// console.log('über 18? ${myAge > 18}');
 
 // if (myAge > 18){
 //     console.log("Glückwunsch über 18");
