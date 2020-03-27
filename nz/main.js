@@ -2,6 +2,12 @@
 
 let map = document.querySelector("#map")
 
+// let lat = document.querySelector(".data-lat")
+// let lng = document.querySelector(".data-long")
+
+// var mymap = L.map(map).setView([lat, lng], 13);
+// -> dieser Part funktioniert nicht
+
 var mymap = L.map(map).setView([-45.8909481029, 170.6417191], 13);
 
 L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
