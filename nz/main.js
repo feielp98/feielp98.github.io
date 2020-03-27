@@ -2,11 +2,11 @@
 
 let map = document.querySelector("#map")
 
-// let lat = document.querySelector(".data-lat")
-// let lng = document.querySelector(".data-long")
+// let lat = document.querySelector("div.map.data-lat")
+// let lng = document.querySelector("div.map.data-long")
 
 // var mymap = L.map(map).setView([lat, lng], 13);
-// -> dieser Part funktioniert nicht
+// // -> dieser Part funktioniert nicht
 
 var mymap = L.map(map).setView([-45.8909481029, 170.6417191], 13);
 
