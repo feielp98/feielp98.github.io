@@ -28,9 +28,26 @@ L.control.layers({
 for (let i = 1; i < CONFIRMED.length; i++) {
     let row = CONFIRMED[i];
     //console.log(row[2],row[3]);
+    let reg = `${row[2],row[3]}`;
+    let lat = row[2];
+    let lng = row[3];
+
     let val = row[row.length-1];
-    let mrk = L.marker([row[2], row[3]]).addTo(map);
-    mrk.bindPopup(`${row[0]} ${row[1]}:${val}`);
+    // let mrk = L.marker([row[2], row[3]]).addTo(map);
+    // mrk.bindPopup(`${row[0]} ${row[1]}:${val}`);
+
+    //Kreis-Symbole berechnen (Flächengröße)
+    //A=r2*Pi
+    //r=WURZEL(A/Pi)
+    let s =0.25
+    let r = Math.sqrt(val*s/Math.PI);
+    
+
+    let circle = L.circleMarker([lat, lng], {
+        radius: r
+
+    }).addTo(map);
+    circle.bindPopup(`${reg}: ${val}`);
 }
 
 
