@@ -1,5 +1,11 @@
+body{
+    overflow: hidden;
+}
+/* Macht die Scrollbars weg*/
+
 #map{
     width: 100vw;
     height: 100vh;
-    
+
 }
+/* setzt Kartengröße auf 100% vom Bildschirm*/
