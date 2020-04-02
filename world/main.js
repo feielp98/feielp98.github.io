@@ -12,8 +12,10 @@ L.control.layers({
     "OpenTopoMap": startLayer,
     "OpenStreetMap.Mapnik": L.tileLayer.provider("OpenStreetMap.Mapnik"),
     // "Stadia.OSMBright": L.tileLayer.provider("Stadia.OSMBright"),
-    // "Thunderforest.OpenCycleMap": L.tileLayer.provider("Thunderforest.OpenCycleMap"),
-    // "CyclOSM": L.tileLayer.provider("CyclOSM"),
+    "Thunderforest.OpenCycleMap": L.tileLayer.provider("Thunderforest.OpenCycleMap"),
+    "CyclOSM": L.tileLayer.provider("CyclOSM"),
+    "OpenMapSurfer.Roads": L.tileLayer.provider("OpenMapSurfer.Roads")
 
 }).addTo(map)
 
+//OpenMapSurfer.Roads
