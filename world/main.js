@@ -45,5 +45,5 @@ let drawCircles = function (data) {
 };
 
 // drawCircles(CONFIRMED);
-drawCircles(RECOVERED);
-// drawCircles(DEATHS);
+// drawCircles(RECOVERED);
+drawCircles(DEATHS);
