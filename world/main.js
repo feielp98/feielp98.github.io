@@ -110,22 +110,37 @@ slider.onchange =function(){
 drawCircles();
 
 let playButton = document.querySelector("#play");
+let runningAnimation = null;
 
 playButton.onclick = function(){
     // console.log("clicked");
 
     let value = slider.min;
+    // let runningAnimation = null;
+    if(slider.value==slider.max){
+        value=slider.min;
+    } else {
+        value = slider.value;
+    }
+    
+    playButton.value="⏸️";
 
-    let runningAnimation = null;
-    runningAnimation = window.setInterval(function(){
-        // console.log(value,"250 ms")
-        slider.value = value;
-        drawCircles();
-        value++;
-
-        if(value > slider.max){
-            window.clearInterval(runningAnimation)
-        }
-    }, 250)
-
+    if(runningAnimation) {
+        window.clearInterval(runningAnimation);
+        playButton.value="▶️";
+        runningAnimation=null;
+    } else {
+        runningAnimation = window.setInterval(function(){
+            // console.log(value,"250 ms")
+            slider.value = value;
+            drawCircles();
+            value++;
+    
+            if(value > slider.max){
+                window.clearInterval(runningAnimation);
+                playButton.value="▶️";
+                runningAnimation=null;
+            }
+        }, 250)    
+    }
 };
