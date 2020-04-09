@@ -31,7 +31,7 @@ let drawCircles = function () {
     // console.log(value,options);
 
     // Datum anzeigen & Thema anzeigen
-    document.querySelector("#datum").innerHTML = `am ${header[index]} - ${topic}`;
+    document.querySelector("#datum").innerHTML = `am ${header[index]} - ${label}`;
     
     //console.log(data);
     for (let i = 1; i < data.length; i++) {
