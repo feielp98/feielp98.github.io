@@ -55,4 +55,9 @@ let drawCircles = function () {
 // drawCircles(DEATHS);
 // drawCircles(RECOVERED);
 
+document.querySelector("#pulldown").onchange = function(){
+    drawCircles();
+
+};
+
 drawCircles();
