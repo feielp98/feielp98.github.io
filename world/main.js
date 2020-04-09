@@ -29,6 +29,11 @@ let drawCircles = function () {
     let value = options[options.selectedIndex].value;
     let label = options[options.selectedIndex].text;
     let color;
+
+    if (val===0){
+        continue;
+    }
+
     // console.log(value,label,options);
 
     if(value==="confirmed"){
@@ -41,6 +46,7 @@ let drawCircles = function () {
         data = RECOVERED;
         color = "#2ECC40";
     }
+
 
     // Datum anzeigen & Thema anzeigen
     document.querySelector("#datum").innerHTML = `am ${header[index]} - ${label}`;
