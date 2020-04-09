@@ -1,6 +1,6 @@
 let startLayer = L.tileLayer.provider("OpenTopoMap")
 let map = L.map("map", {
-    center: [0, 0],
+    center: [30, 0],
     zoom: 2,
     layers: [
         startLayer
@@ -41,6 +41,7 @@ let drawCircles = function () {
     // Datum anzeigen & Thema anzeigen
     document.querySelector("#datum").innerHTML = `am ${header[index]} - ${label}`;
 
+    // "alte" Kreissymbole löschen
     circleGroup.clearLayers();
 
     //console.log(data);
