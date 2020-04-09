@@ -28,11 +28,21 @@ let drawCircles = function () {
     let options = document.querySelector("#pulldown").options;
     let value = options[options.selectedIndex].value;
     let label = options[options.selectedIndex].text;
-    // console.log(value,options);
+    // console.log(value,label,options);
+
+    if(value==="confirmed"){
+        data=CONFIRMED;
+    } else if (value === "deaths"){
+        data = DEATHS;
+    } else {
+        data = RECOVERED;
+    }
 
     // Datum anzeigen & Thema anzeigen
     document.querySelector("#datum").innerHTML = `am ${header[index]} - ${label}`;
-    
+
+    circleGroup.clearLayers();
+
     //console.log(data);
     for (let i = 1; i < data.length; i++) {
         let row = data[i];
