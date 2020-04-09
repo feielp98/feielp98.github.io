@@ -50,6 +50,16 @@ let drawCircles = function () {
     // "alte" Kreissymbole löschen
     circleGroup.clearLayers();
 
+    // Array sortieren - Beispiel
+    // werte=[3,2,5,7,1,9];
+    // werte.sort();
+    // console.log(werte);
+
+    // Array sortieren - mit Funktion
+    data.sort(function compareNumbers(row1,row2){
+        return row2[index]-row1[index];
+    })
+    
     //console.log(data);
     for (let i = 1; i < data.length; i++) {
         let row = data[i];
@@ -59,7 +69,7 @@ let drawCircles = function () {
         let lng = row[3];
         let val = row[index];
 
-        if (val===0){
+        if (val==="0"){
             continue;
         }
 
