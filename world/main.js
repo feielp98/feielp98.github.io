@@ -108,3 +108,24 @@ slider.onchange =function(){
 }
 
 drawCircles();
+
+let playButton = document.querySelector("#play");
+
+playButton.onclick = function(){
+    // console.log("clicked");
+
+    let value = slider.min;
+
+    let runningAnimation = null;
+    runningAnimation = window.setInterval(function(){
+        // console.log(value,"250 ms")
+        slider.value = value;
+        drawCircles();
+        value++;
+
+        if(value > slider.max){
+            window.clearInterval(runningAnimation)
+        }
+    }, 250)
+
+};
