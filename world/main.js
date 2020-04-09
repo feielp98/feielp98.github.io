@@ -30,10 +30,6 @@ let drawCircles = function () {
     let label = options[options.selectedIndex].text;
     let color;
 
-    if (val===0){
-        continue;
-    }
-
     // console.log(value,label,options);
 
     if(value==="confirmed"){
@@ -62,6 +58,11 @@ let drawCircles = function () {
         let lat = row[2];
         let lng = row[3];
         let val = row[index];
+
+        if (val===0){
+            continue;
+        }
+
         //let mrk = L.marker([lat,lng]).addTo(map);
         //mrk.bindPopup(`${reg}: ${val}`);
 
