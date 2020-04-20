@@ -81,12 +81,12 @@ L.geoJson.ajax(wandern, {
         if (feature.properties.TYP = "1") {
             return {
                 color: "black",
-                dashArray: "4,7"
+                dashArray: "10,10"
             };
         } else if (feature.properties.TYP = "2") {
             return {
                 color: "black",
-                dashArray: "1,12"
+                dashArray: "5,20"
             };
         }
 },
