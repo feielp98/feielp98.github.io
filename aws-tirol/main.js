@@ -50,7 +50,10 @@ let aws = L.geoJson.ajax(awsUrl, {
         <li>Datum: ${point.properties.date}</li>
         <li>Lufttemperatur: ${point.properties.LT} °C</li>
         <li>Windgeschwindigkeit: ${point.properties.WG} m/s</li>
+        <li>Relative Feuchte: ${point.properties.RH} %</li>
+        <li>Schneehöhe: ${point.properties.HS} cm</li>
         </ul>
+        <a target="links" href="https://lawine.tirol.gv.at/data/grafiken/1100/standard/tag/${point.properties.plot}.png"> Plot zur Wetterstation</a>
         `);
         return marker;
     }
