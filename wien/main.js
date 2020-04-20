@@ -97,7 +97,17 @@ L.geoJson.ajax(heritage, {
         }
 },
 onEachFeature: function (feature, layer) {
-    console.log("Feature: ", feature);
+    // console.log("Feature: ", feature);
+    // FLÄCHEN SORTIEREN - VERSUCHE 1 bis 3
+    // if (feature.properties.TYP = "1") {
+    //     layer.bringToFront();
+    // };
+    // layer.bringToFront();
+    // if (feature.properties.TYP = "1") {
+    //         layer.bringToFront();
+    //     } else if (feature.properties.TYP = "2"){
+    //         layer.bringToBack();
+    //     }
     layer.bindPopup(`<h3>${feature.properties.NAME}</h3>
         <p>${feature.properties.INFO}</p>
         `);
