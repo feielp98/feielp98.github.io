@@ -33,6 +33,8 @@ L.control.layers({
 
 let sightUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:SPAZIERPUNKTOGD &srsName=EPSG:4326&outputFormat=json";
 
+
+
 let sights = L.geoJson.ajax(sightUrl, {
     pointToLayer: function (point, latlng) {
         let icon = L.icon({
@@ -43,8 +45,17 @@ let sights = L.geoJson.ajax(sightUrl, {
             icon: icon
         });
         // console.log("Point", point);
+
+        //Variable für "keine Anmerkung verfügbar"
+        let anmerkung;
+        if (point.properties.BEMERKUNG == null) {
+            anmerkung = "keine näheren Informationen vorhanden";
+        } else {
+            anmerkung = point.properties.BEMERKUNG;
+        }
+
         marker.bindPopup(`<h3>${point.properties.NAME}</h3>
-        <p>${point.properties.BEMERKUNG}</p>
+        <p>${anmerkung}</p>
         <p><b></b>Adresse:</b> ${point.properties.ADRESSE}</p>
         <p><a target="links" href="${point.properties.WEITERE_INF}">Link</a></p>
         `);
