@@ -89,6 +89,10 @@ L.geoJson.ajax(wandern, {
                 dashArray: "1,12"
             };
         }
+},
+onEachFeature: function (feature, layer){
+    console.log("Wanderweg Feature", feature);
+    layer.bindPopup(`${feature.properties.BEZ_TEXT}`)
 }
 }).addTo(walkGroup);
 
