@@ -38,7 +38,8 @@ let aws = L.geoJson.ajax(awsUrl, {
         //     return false;
         // }
         // return feature.properties.LT < 5;
-        return feature.geometry.coordinates[2] > 3000;
+        // return feature.geometry.coordinates[2] > 3000;
+        return feature.properties.LT !=null;
     },
     pointToLayer: function(point, latlng) {
         // console.log("point: ", point);
