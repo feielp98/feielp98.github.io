@@ -72,12 +72,24 @@ sights.on("data:loaded", function () {
 let wandern = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:WANDERWEGEOGD&srsName=EPSG:4326&outputFormat=json";
 
 L.geoJson.ajax(wandern, {
-    style: function () {
-        return {
-            color: "green",
-            weight: 5
-        };
-    }
+    // style: function () {
+    //     return {
+    //         color: "green",
+    //         weight: 5
+    //     };
+    style: function (feature) {
+        if (feature.properties.TYP = "1") {
+            return {
+                color: "black",
+                dashArray: "4,7"
+            };
+        } else if (feature.properties.TYP = "2") {
+            return {
+                color: "black",
+                dashArray: "1,12"
+            };
+        }
+}
 }).addTo(walkGroup);
 
 let heritage = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:WELTKULTERBEOGD&srsName=EPSG:4326&outputFormat=json";
@@ -95,21 +107,21 @@ L.geoJson.ajax(heritage, {
                 fillOpacity: 0.3
             };
         }
-},
-onEachFeature: function (feature, layer) {
-    // console.log("Feature: ", feature);
-    // FLÄCHEN SORTIEREN - VERSUCHE 1 bis 3
-    // if (feature.properties.TYP = "1") {
-    //     layer.bringToFront();
-    // };
-    // layer.bringToFront();
-    // if (feature.properties.TYP = "1") {
-    //         layer.bringToFront();
-    //     } else if (feature.properties.TYP = "2"){
-    //         layer.bringToBack();
-    //     }
-    layer.bindPopup(`<h3>${feature.properties.NAME}</h3>
+    },
+    onEachFeature: function (feature, layer) {
+        // console.log("Feature: ", feature);
+        // FLÄCHEN SORTIEREN - VERSUCHE 1 bis 3
+        // if (feature.properties.TYP = "1") {
+        //     layer.bringToFront();
+        // };
+        // layer.bringToFront();
+        // if (feature.properties.TYP = "1") {
+        //         layer.bringToFront();
+        //     } else if (feature.properties.TYP = "2"){
+        //         layer.bringToBack();
+        //     }
+        layer.bindPopup(`<h3>${feature.properties.NAME}</h3>
         <p>${feature.properties.INFO}</p>
         `);
-}
+    }
 }).addTo(heritageGroup);
