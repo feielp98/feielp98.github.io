@@ -111,7 +111,7 @@ let drawWind = function(jsonData) {
             return L.marker(latlng, {
                 title: `${feature.properties.name} (${feature.geometry.coordinates[2]}m) - ${kmh} km/h`,
                 icon: L.divIcon({
-                    html: `<div class="label-wind"> <i class="fas fa-arrow-circle-up" style:"color:${color};transform: rotate(${rotation}deg)"</i></div>`,
+                    html: `<div class="label-wind"><i class="fas fa-arrow-circle-up" style="color:${color};transform: rotate(${rotation}deg)"></i></div>`,
                     className: "ignore-me" // dirty hack
                 })
             })
