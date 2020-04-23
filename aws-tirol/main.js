@@ -25,78 +25,67 @@ L.control.layers({
         L.tileLayer.provider("BasemapAT.overlay")
     ])
 }, {
-    "Wetterstationen Tirol": overlay.stations, 
+    "Wetterstationen Tirol": overlay.stations,
     "Temperatur (°C)": overlay.temperature,
-    "Windgeschwindigkeit (in km/h)": overlay.wind,
+    "Windgeschwindigkeit (km/h)": overlay.wind
 }).addTo(map);
 
 let awsUrl = "https://aws.openweb.cc/stations";
 
-
 let aws = L.geoJson.ajax(awsUrl, {
-    filter: function(feature) {
-        console.log("Feature in filter: ", feature);
-        // if (feature.properties.LT < 5) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
-        // return feature.properties.LT < 5;
-        // return feature.geometry.coordinates[2] > 3000;
-        return feature.properties.LT !=null;
+    filter: function (feature) {
+        //console.log("Feature in filter: ", feature);
+        return feature.properties.LT;
     },
-    pointToLayer: function(point, latlng) {
+    pointToLayer: function (point, latlng) {
         // console.log("point: ", point);
         let marker = L.marker(latlng).bindPopup(`
         <h3>${point.properties.name} ${point.geometry.coordinates[2]} m</h3>
         <ul>
-        <li>Position: Lat: ${point.geometry.coordinates[1]}/Lng: ${point.geometry.coordinates[0]}</li>
         <li>Datum: ${point.properties.date}</li>
-        <li>Lufttemperatur: ${point.properties.LT} °C</li>
-        <li>Windgeschwindigkeit: ${point.properties.WG} m/s</li>
-        <li>Relative Feuchte: ${point.properties.RH} %</li>
-        <li>Schneehöhe: ${point.properties.HS} cm</li>
+        <li>Position (Lat,Lng): ${point.geometry.coordinates[1].toFixed(5)}, ${point.geometry.coordinates[0].toFixed(5)}</li>
+        <li>Lufttemperatur (°C): ${point.properties.LT}</li>
+        <li>Windgeschwindigkeit (m/s): ${point.properties.WG || "-"}</li>
+        <li>Relative Luftfeuchte (%): ${point.properties.RH || "-"}</li>
+        <li>Schneehöhe (cm): ${point.properties.HS || "-"}</li>
         </ul>
-        <a target="links" href="https://lawine.tirol.gv.at/data/grafiken/1100/standard/tag/${point.properties.plot}.png"> Plot zur Wetterstation</a>
+        <p><a target="plot" href="https://lawine.tirol.gv.at/data/grafiken/1100/standard/tag/${point.properties.plot}.png">Grafik der vorhandenen Messwerte anzeigen</a></p>
+        </ul>
         `);
         return marker;
     }
 }).addTo(overlay.stations);
 
-let getColor = function(val,ramp){
-    // console.log(val,ramp);
+let getColor = function(val, ramp) {
+    //console.log(val, ramp);
     let col = "red";
 
-    // for-Schleife um Wind nach Höhe der Werte einzufärben
     for (let i = 0; i < ramp.length; i++) {
-        const element = ramp[i];
-        if (val >= pair[0]){
+        const pair = ramp[i];
+        if (val >= pair[0]) {
             break;
         } else {
             col = pair[1];
         }
-        // console.log(val,pair);
-        
+        //console.log(val,pair);
     }
-    
     return col;
 };
 
-// console.log(col);
+//console.log(color);
 
-
-let drawTemperature = function(jsonData){
-    // console.log("aus der Funktion", jsonData);
+let drawTemperature = function(jsonData) {
+    //console.log("aus der Funktion", jsonData);
     L.geoJson(jsonData, {
         filter: function(feature) {
-            return feature.properties.LT
+            return feature.properties.LT;
         },
         pointToLayer: function(feature, latlng) {
             let color = getColor(feature.properties.LT,COLORS.temperature);
             return L.marker(latlng, {
-                title: `${feature.properties.name} (${feature.geometry.coordinates[2]} m)`,
+                title: `${feature.properties.name} (${feature.geometry.coordinates[2]}m)`,
                 icon: L.divIcon({
-                    html: `<div class="label-temperature" style ="background-color:${color}">${feature.properties.LT.toFixed(1)}</div>`,
+                    html: `<div class="label-temperature" style="background-color:${color}">${feature.properties.LT.toFixed(1)}</div>`,
                     className: "ignore-me" // dirty hack
                 })
             })
@@ -104,22 +93,21 @@ let drawTemperature = function(jsonData){
     }).addTo(overlay.temperature);
 };
 
-
-// 1. neues Overlay definieren zu L.control.layers hinzufügen und default anzeigen
-// 2. die Funtion drawWind als 1:1 Kopie von drawTemperature mit Anpassungen
-// 3. einen neuen Stil .label-wind im css von main.css
+// 1. neues overlay definieren, zu L.control.layers hinzufügen und default anzeigen
+// 2. die Funktion drawWind als 1:1 Kopie von drawTemperature mit Anpassungen (in km/h)
+// 3. einen neuen Stil .label-wind im CSS von main.css
 // 4. die Funktion drawWind in data:loaded aufrufen
 
-let drawWind = function(jsonData){
-    // console.log("aus der Funktion", jsonData);
+let drawWind = function(jsonData) {
+    //console.log("aus der Funktion", jsonData);
     L.geoJson(jsonData, {
         filter: function(feature) {
-            return feature.properties.WG
+            return feature.properties.WG;
         },
         pointToLayer: function(feature, latlng) {
-            let kmh = Math.round(feature.properties.WG / 1000*3600);
+            let kmh = Math.round(feature.properties.WG / 1000 * 3600);
             return L.marker(latlng, {
-                title: `${feature.properties.name} (${feature.geometry.coordinates[2]} m)`,
+                title: `${feature.properties.name} (${feature.geometry.coordinates[2]}m)`,
                 icon: L.divIcon({
                     html: `<div class="label-wind">${kmh}</div>`,
                     className: "ignore-me" // dirty hack
@@ -127,17 +115,15 @@ let drawWind = function(jsonData){
             })
         }
     }).addTo(overlay.wind);
-
 };
 
-aws.on("data:loaded", function(){
+aws.on("data:loaded", function() {
     //console.log(aws.toGeoJSON());
     drawTemperature(aws.toGeoJSON());
-
     drawWind(aws.toGeoJSON());
-
     map.fitBounds(overlay.stations.getBounds());
-    // Standardmäßige Anzeige
+
     overlay.temperature.addTo(map);
-    console.log(COLORS);
+
+    //console.log(COLORS);
 });
