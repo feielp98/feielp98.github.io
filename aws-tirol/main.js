@@ -63,6 +63,28 @@ let aws = L.geoJson.ajax(awsUrl, {
     }
 }).addTo(overlay.stations);
 
+let getColor = function(val,ramp){
+    // console.log(val,ramp);
+    let col = "red";
+
+    // for-Schleife um Wind nach Höhe der Werte einzufärben
+    for (let i = 0; i < ramp.length; i++) {
+        const element = ramp[i];
+        if (val >= pair[0]){
+            break;
+        } else {
+            col = pair[1];
+        }
+        // console.log(val,pair);
+        
+    }
+    
+    return col;
+};
+
+// console.log(col);
+
+
 let drawTemperature = function(jsonData){
     // console.log("aus der Funktion", jsonData);
     L.geoJson(jsonData, {
@@ -70,10 +92,11 @@ let drawTemperature = function(jsonData){
             return feature.properties.LT
         },
         pointToLayer: function(feature, latlng) {
+            let color = getColor(feature.properties.LT,COLORS.temperature);
             return L.marker(latlng, {
                 title: `${feature.properties.name} (${feature.geometry.coordinates[2]} m)`,
                 icon: L.divIcon({
-                    html: `<div class="label-temperature">${feature.properties.LT.toFixed(1)}</div>`,
+                    html: `<div class="label-temperature" style ="background-color:${color}">${feature.properties.LT.toFixed(1)}</div>`,
                     className: "ignore-me" // dirty hack
                 })
             })
