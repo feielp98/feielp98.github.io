@@ -114,6 +114,7 @@ aws.on("data:loaded", function(){
     drawWind(aws.toGeoJSON());
 
     map.fitBounds(overlay.stations.getBounds());
-
-    overlay.wind.addTo(map);
+    // Standardmäßige Anzeige
+    overlay.temperature.addTo(map);
+    console.log(COLORS);
 });
