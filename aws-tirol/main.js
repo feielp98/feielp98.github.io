@@ -129,11 +129,11 @@ let drawHumidity = function(jsonData) {
             return feature.properties.RH;
         },
         pointToLayer: function(feature, latlng) {
-            // let color = getColor(feature.properties.RH,COLORS.humidity);
+            let color = getColor(feature.properties.RH,COLORS.humidity);
             return L.marker(latlng, {
                 title: `${feature.properties.name} (${feature.geometry.coordinates[2]}m) - ${feature.properties.RH} %`,
                 icon: L.divIcon({
-                    html: `<div class="label-humidity" style="background-color:${feature.properties.RH.toFixed(1)}></div>`,
+                    html: `<div class="label-humidity" style="background-color:${color}">${feature.properties.RH.toFixed(1)}</div>`,
                     className: "ignore-me" // dirty hack
                 })
             });
@@ -148,11 +148,11 @@ let drawSnow = function(jsonData) {
             return feature.properties.HS;
         },
         pointToLayer: function(feature, latlng) {
-            let color = getColor(feature.properties.HS,COLORS.temperature);
+            let color = getColor(feature.properties.HS,COLORS.snow);
             return L.marker(latlng, {
                 title: `${feature.properties.name} (${feature.geometry.coordinates[2]}m)`,
                 icon: L.divIcon({
-                    html: `<div class="label-snow" style="background-color:${feature.properties.HS.toFixed(1)}></div>`,
+                    html: `<div class="label-snow" style="background-color:${color}">${feature.properties.HS.toFixed(1)}</div>`,
                     className: "ignore-me" // dirty hack
                 })
             })
