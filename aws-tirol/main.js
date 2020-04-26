@@ -172,3 +172,15 @@ aws.on("data:loaded", function() {
 
     //console.log(COLORS);
 });
+
+//Einbauen von Rainviewer
+L.control.rainviewer({ 
+    position: 'bottomleft',
+    nextButtonText: '>',
+    playStopButtonText: 'Start & Pause',
+    prevButtonText: '<',
+    positionSliderLabelText: "Uhrzeit:",
+    opacitySliderLabelText: "Deckkraft:",
+    animationInterval: 100,
+    opacity: 0.5
+}).addTo(map); 
