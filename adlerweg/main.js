@@ -46,18 +46,10 @@ for (const blick of ADLERBLICKE) {
 }
 overlay.adlerblicke.addTo(map);
 
+let gpx = new L.GPX("gpx/AdlerwegEtappe01.gpx", {
+    async: true
+});
 
-// pointToLayer: function(feature, latlng) {
-//     return L.marker(latlng, {
-//         title: `${feature.properties.standort} (${feature.geometry.coordinates[2]}m)`,
-//         icon: L.divIcon({
-//             html: `<div class="label-temperature" style="background-color:${color}">${feature.properties.LT.toFixed(1)}</div>`,
-//             className: "ignore-me" // dirty hack
-//         }
-
-
-// onEachFeature: function (feature, layer){
-//     console.log("Wanderweg Feature", feature);
-//     layer.bindPopup(`${feature.properties.standort} ${feature.properties.seehoehe}`)
-// }
-// }).addTo(map)
+gpx.on("loaded", function(evt){
+    map.fitBounds(evt.target.getBounds());
+}).addTo(map);
