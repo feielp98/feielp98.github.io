@@ -49,6 +49,8 @@ for (const blick of ADLERBLICKE) {
 overlay.adlerblicke.addTo(map);
 
 let drawEtappe = function(nr){
+    overlay.etappen.clearLayers(); // bestehende Etappe löschen
+
     console.log(ETAPPEN[nr].track);
     let track = ETAPPEN[nr].track.replace("A",""); // A mit nichts ersetzen (bei Benennung in track-Attribute)
     console.log(track);
@@ -56,7 +58,7 @@ let drawEtappe = function(nr){
     let gpx = new L.GPX(`gpx/AdlerwegEtappe${track}.gpx`, {
         async: true,
         marker_options: {
-            startIconUrl: 'icons/number_1.png',
+            startIconUrl: `icons/number_${nr}.png`, 
             endIconUrl: 'icons/finish.png',
             shadowUrl: null, // eigene Grafik die Schatten macht, brauchen wir nicht deshalb null
             iconSize: [32, 37],
@@ -73,6 +75,17 @@ let drawEtappe = function(nr){
         map.fitBounds(evt.target.getBounds());
     }).addTo(overlay.etappen);
     overlay.etappen.addTo(map);
+
+    //Schleife geht alle Infos des Objekts durch (zuvor im Index.html beschrieben)
+    for (const key in ETAPPEN[nr]) {
+            const element = ETAPPEN[nr][key];
+            console.log(`et-${key}`);
+            let elem = document.querySelector(`et-${key}`);
+            if (elem) {
+                elem.innerHTML = val;
+                console.log(val);
+            }
+    }
 };
 drawEtappe(22);
 
@@ -82,5 +95,11 @@ console.log(pulldown);
 for (let i = 0; i < ETAPPEN.length; i++) {
     const etappe = ETAPPEN[i];
     console.log(etappe);
-    pulldown.innerHTML += `<option value ="${i}">${etappe.title}</option>`; 
+    pulldown.innerHTML += `<option value ="${i}">${etappe.titel}</option>`; 
+}
+// Etappenpulldown aktivieren (über klick ändern sich die angezeigten Etappen)
+pulldown.onchange = function(evt) {
+    let nr = evt.target.options[evt.target.options.selectedIndex].value;
+    //console.log(nr);
+    drawEtappe(nr);
 }
