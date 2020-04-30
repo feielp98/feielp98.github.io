@@ -91,7 +91,7 @@ drawEtappe(1);
 let pulldown = document.querySelector("#pulldown"); // in index.html erzeugtes Pulldown ansprechen
 console.log(pulldown);
 
-for (let i = 0; i < ETAPPEN.length; i++) {
+for (let i = 1; i < ETAPPEN.length; i++) {
     const etappe = ETAPPEN[i];
     console.log(etappe);
     pulldown.innerHTML += `<option value ="${i}">${etappe.titel}</option>`; 
