@@ -22,4 +22,4 @@ L.control.layers({
     ])
 }).addTo(map);
 
-console.log(ETAPPEN); //schauen ob Etappen-File eingebunden wurde
+console.log(ADLERBLICKE); //schauen, ob Etappen-File eingebunden wurde
