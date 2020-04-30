@@ -76,18 +76,18 @@ let drawEtappe = function(nr){
     }).addTo(overlay.etappen);
     overlay.etappen.addTo(map);
 
-    //Schleife geht alle Infos des Objekts durch (zuvor im Index.html beschrieben)
+    //Schleife geht alle Infos des Objekts durch (zuvor im Index.html beschrieben) -> um Texte entsprechend der Etappe anzupassen
     for (const key in ETAPPEN[nr]) {
             const element = ETAPPEN[nr][key];
             console.log(`et-${key}`);
-            let elem = document.querySelector(`et-${key}`);
+            let elem = document.querySelector(`#et-${key}`);
             if (elem) {
-                elem.innerHTML = val;
+                elem.innerHTML = ETAPPEN[nr][key];
                 console.log(val);
             }
     }
 };
-drawEtappe(22);
+drawEtappe(1);
 
 let pulldown = document.querySelector("#pulldown"); // in index.html erzeugtes Pulldown ansprechen
 console.log(pulldown);
