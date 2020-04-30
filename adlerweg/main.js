@@ -21,3 +21,5 @@ L.control.layers({
         L.tileLayer.provider("BasemapAT.overlay")
     ])
 }).addTo(map);
+
+console.log(ETAPPEN); //schauen ob Etappen-File eingebunden wurde

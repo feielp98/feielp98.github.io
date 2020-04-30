@@ -7,9 +7,9 @@ const ETAPPEN = [{
         "ziel": "Endpunkt",
         "auf": "Hˆhenmeter bergauf",
         "ab": "Hˆhenmeter bergab",
-        "hp": "Hˆchster Punkt",
+        "hp": "Höchster Punkt",
         "grad": "Schwierigkeitsgrad",
-        "km": "Streckenl‰nge (in km)",
+        "km": "Streckenlänge (in km)",
         "stunden": "Gehzeit (in Stunden)",
         "einkehr": "Einkehrmˆglichkeiten",
         "track": "ID in GPS-Track"
@@ -17,7 +17,7 @@ const ETAPPEN = [{
     {
         "nr": "1",
         "titel": "Adlerweg-Etappe 1: St. Johann ñ Gaudeamush¸tte",
-        "text": "Die erste Etappe am Adlerweg f¸hrt vom St. Johanner Ortsteil Hinterkaiser zur Gaudeamush¸tte auf 1.263 Metern Seehˆhe. Zei besondere Naturschauspiele entlang der Strecke sind der imposante Schleierwasserfall und die Hˆhle Diebsˆfen.",
+        "text": "Die erste Etappe am Adlerweg führt vom St. Johanner Ortsteil Hinterkaiser zur Gaudeamush¸tte auf 1.263 Metern Seehˆhe. Zei besondere Naturschauspiele entlang der Strecke sind der imposante Schleierwasserfall und die Hˆhle Diebsˆfen.",
         "info": "Start im Ortszentrum von St. Johann in Tirol beim Tourismusb¸ro (ca. 250 Meter von Bahnhof entfernt). Wer mit dem Auto anreist hat die Mˆglichkeit auf dem ˆffentlichen Parkplatz (kostenlos) bei Koasastadion zu parken (ca. 400 Meter vom Tourismusb¸ro entfernt). Vom Tourismusb¸ro ausgehend geht man geradeaus Richtung Kreisverkehr zur Hauptstraﬂe, dort biegt man bei der groﬂen Hinweistafel Hinterkaiser ab und geht auf dem Hinterkaiserweg weiter in Richtung Rummlerhof. Vom Rummlerhof (Bauernhof mit angeschlossenem Wirtshaus) im St. Johanner Ortsteil Hinterkaiser auf schmalem, asphaltierten Fahrweg nach Westen Richtung ÑHaus Maurerhofì. Bald darauf der Beschilderung ÑSchleierwasserfallì folgen. Links am (Bauern-)Haus Nr. 80 vorbei (ÑWasserfall, Nr.33ì). Nun auf Weg bzw. Steig in den Wald und m‰ﬂig steil aufw‰rts. Es wird eine Forststraﬂe ¸berquert, jenseits der Forststraﬂe dem Steig mit der rot-weiﬂen Markierung folgen und den Bach entlang nach oben. Der Steig m¸ndet in einen Forstweg ñ hier links und wenig sp‰ter wieder rechts Richtung ÑSchleierwasserfallì halten (bis zum Schleierwasserfall stets auf dem Weg Nr. 33 bleiben). Weiter durch den Wald und ¸ber den Steig (eine seilversicherte Stelle) nach Diebsˆfen. Hier rinnt ein Bach unter einer Felswand vorbei, in der sich eine Hˆhle befindet. Hinunter ins Bachbett und den Markierungen in der Hˆhle folgen (Steig f¸hrt durch die Hˆhle durch). Von Diebsˆfen auf dem Steig hin¸ber bzw. gem¸tlich nach oben zum Schleierwasser-fall (ÑZwickstelle Wasserfallì): Hier geht man zwischen Wasserfall und Felswand. Von hier auf dem Steig Richtung ÑObere Regalmì und ansteigend an Kletterw‰nden vorbei. Sp‰ter vorbei an einem weiteren Wasserfall und ¸ber eine Wiese hinunter zu einer Steiggabelung ñ jetzt rechter Hand wieder nach oben (Nr. 817). Anschlieﬂend an ÑRegalmì bzw. ÑGaudeamush¸tteì orientieren. Der Steig verl‰uft in dem Bereich im freien Almgebiet, in Folge erneut abw‰rts und sp‰ter als Fahrweg hin¸ber zur Oberen Regalm (ÑZwickstelle Regalmì). Oberhalb der H¸tte Richtung ÑGaudeamush¸tteì und auf dem Steig im freien Gel‰nde z¸gig empor auf ein Joch (unmittelbar daneben Bergsteigergrab am Brennenden Palven). Jenseits des Sattels hinunter Richtung ÑGaudeamush¸tteì. Der Steig leitet sp‰ter unmittelbar vorbei an der Freibergh¸tte und recht z¸gig hinab zur Gaudeamush¸tte (Weg Nr. 35 ab dem Sattel).",
         "start": "Rummlerhof",
         "ziel": "Gaudeamush¸tte",
@@ -32,10 +32,10 @@ const ETAPPEN = [{
     },
     {
         "nr": "2",
-        "titel": "Adlerweg-Etappe 2: Gaudeamush¸tte ñ Hintersteiner See",
+        "titel": "Adlerweg-Etappe 2: Gaudeamushütte ñ Hintersteiner See",
         "text": "Diese Etappe f¸hrt ausgehend von der Gaudeamush¸tte ¸ber den Klammlweg zu einem besonderem Ziel entlang des Adlerwegs: dem Hintersteiner See. Der Bergsee lockt vor allem im Hochsommer mit Badefreuden.",
         "info": "Von der Gaudeamush¸tte ¸berwindet man ¸ber den Klammlweg fast 400 Hˆhenmeter bis zur Gruttenh¸tte, der hˆchstgelegenen H¸tte im Kaisergebiet. Dazu h‰lt man sich zuerst in Richtung Ellmauer Tor und biegt dann Richtung Westen auf den Steig Nr. 824, 813. Der Weg f¸hrt durch Wiesen und Latschen, nach der Querung eines trockenen Bachbettes gelangt man zum Wegweiser ÑGruttenh¸tte ¸ber Klammlì (Schwindelfreiheit und Trittsicherheit erforderlich). Der Weg verl‰uft ¸ber Steine und kleine Felsbrocken am Rand eines Gerˆlltrichters. Die Gaudeamush¸tte liegt jetzt schon deutlich unterhalb. Bald f¸hrt der schmale Weg um einen Felsen herum und man steht vor einer ca. zwei Meter langen Eisenleiter. Diese klettert man hinauf, dann geht es an einer Eisenkette entlang ¸ber einige Stufen. Links unten das Gerˆll, rechts die hohen Felsen, f¸hrt der Weg nun leicht bergan. Nach der Querung eines Gerˆllfeldes sieht man bald die Holzstufen zum Klamml-Eingang. Rechts von der Wand des Gruttenkopfs geht es steil nach oben. Der Weg ist mit Eisenklammern f¸r Tritte und Griffe gesichert. Bei der letzten Stufe zieht man sich ¸ber einen Felsen hoch. Am Ausstieg des Klamml links halten. Neben dem schmalen Weg f‰llt das Gel‰nde rechts steil ab, aber wenige Kehren sp‰ter erreicht man die Kuppe, von wo ein fast ebener Weg noch ein kurzes St¸ck zur Gruttenh¸tte f¸hrt. Gleich darauf m¸ndet von rechts der Weg vom Jubil‰umssteig ein. Von der Gruttenh¸tte (1.620 Meter) nimmt man den Gruttenweg 14 a Richtung S¸dwesten.† Auf rund 1.400 Meter Hˆhe zweigt vom Gruttenweg im Bereich vom Krummbachegg der ÑHˆhenwegì Nr. 823 Richtung Westen ab (Hintersteiner See). Jetzt auf dem Hˆhenweg, der auch ÑWilder-Kaiser-Steigì genannt wird, im lichten Mischwald sowie durch Latschen und Kare s¸dlich am Treffauer vorbei und um ihn herum marschieren, anschlieﬂend weiter Richtung ÑKaiser Hochalmì (unbewirtschaftet). Diese liegt auf 1.417 Meter im freien Gel‰nde, von hier aus geht es auf markiertem Weg hinunter. Nun an der Beschilderung ÑSteiner Hochalmì orientieren und dem Steig Nr. 823 folgen, der Steig verl‰uft durch Mischwald bergab. Am Waldrand gabelt sich die Route, an dieser Stelle rechts nach oben und dann gleich dem markierten Steig folgen, der links den Hang entlang zieht. Er f¸hrt zur Steiner Hochalm, wo man sich mit Getr‰nken erfrischen und musikalisch erfreuen kann, denn hier gibt es oft Harfenspiel und Gesang. S¸dˆstlich vom  Almgeb‰ude geht es ¸ber einen Karrenweg hinab zum ÑHintersteiner Seeì. Bald ˆffnet sich der Blick auf dieses schˆne Naturjuwel. Sp‰ter weiter auf einem Forstweg und dabei immer abw‰rts halten. Beim Gasthof B‰rnstatt bzw. bei der B‰rnstatt- Kapelle m¸ndet der Weg in die Fahrstraﬂe zum Hintersteiner See, hier geht es entlang der Straﬂe rechter Hand weiter an Blumenwiesen und H‰usern vorbei zum Ostufer des Sees. Auf dieser Etappe gibt es auﬂer auf der Gaudeamus- bzw. Gruttenh¸tte zu Etappenbeginn und gegen Etappenende (B‰rnstatt und am Hintersteiner See) keine Einkehrmˆglichkeit mit Mahlzeiten.",
-        "start": "Gaudeamush¸tte",
+        "start": "Gaudeamushütte",
         "ziel": "Hintersteiner See",
         "auf": "800",
         "ab": "1130",
@@ -43,7 +43,7 @@ const ETAPPEN = [{
         "grad": "mittelschwierig",
         "km": "14,5",
         "stunden": "6",
-        "einkehr": "Gaudeamush¸tte#Gruttenh¸tte#Seest¸berl#Pension Maier",
+        "einkehr": "Gaudeamushütte#Gruttenh¸tte#Seest¸berl#Pension Maier",
         "track": "A02"
     },
     {
