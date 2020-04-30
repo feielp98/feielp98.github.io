@@ -83,7 +83,6 @@ let drawEtappe = function(nr){
             let elem = document.querySelector(`#et-${key}`);
             if (elem) {
                 elem.innerHTML = ETAPPEN[nr][key];
-                console.log(val);
             }
     }
 };
