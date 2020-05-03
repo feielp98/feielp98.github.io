@@ -41,3 +41,20 @@ main h2 {
     height: 70vh;
     border: 1px solid gray;
 }
+
+#et-info {
+    font-style: italic;
+}
+
+main h4 {
+    font-size: 0.9em;
+    font-style: oblique;
+}
+
+p {
+    margin-left: 20px;
+}
+
+#info{
+    margin-left: 0px;
+}
