@@ -1,0 +1,18 @@
+const EINKEHR = [
+    [1, "Rummlerhof", lat, lng],
+    [1, "Obere Regalm", lat, lng],
+    [1, "Gaudeamsuhütte", lat, lng],
+    [1, "Rummlerhof", lat, lng],
+    [2, "Gaudeamsuhütte", lat, lng],
+    [2, "Gruttenhütte", lat, lng],
+    [2, "Seestüberl", lat, lng],
+    [2, "Pension Maier", lat, lng],
+    [3, "Seestüberl", lat, lng],
+    [3, "Pension Maier", lat, lng],
+    [3, "Stöfflhütte", lat, lng],
+    [3, "Walleralm", lat, lng],
+    [3, "Kaindlhütte", lat, lng],
+    [3, "Gasthof Weinbergerhaus", lat, lng],
+    [4, "Höhlensteinhaus", lat, lng],
+    [4, "Gasthof Buchhacker", lat, lng],
+];
