@@ -11,7 +11,8 @@ let map = L.map("map", {
 let overlay={
     adlerblicke: L.featureGroup(),
     etappen: L.featureGroup(),
-    einkehr: L.featureGroup()
+    einkehr: L.featureGroup(),
+    wikipedia: L.featureGroup()
 };
 
 L.control.layers({
@@ -29,7 +30,8 @@ L.control.layers({
 }, {
     "Adlerblicke": overlay.adlerblicke,
     "Adlerweg Etappen": overlay.etappen,
-    "Einkehrmöglichkeiten": overlay.einkehr
+    "Einkehrmöglichkeiten": overlay.einkehr,
+    "Wikipedia Artikel": overlay.wikipedia
 }).addTo(map);
 
 // console.log(ADLERBLICKE); //schauen, ob Etappen-File eingebunden wurde
@@ -137,3 +139,69 @@ let controlElevation = L.control.elevation({
 L.control.scale({
     imperial: false //nicht-metrische Werte weglassen
 }).addTo(map); //erzeugt einen Maßstab links unten bei der Karte
+
+map.on("zoomend moveend", function (evt){
+    let ext = {
+        north: map.getBounds().getNorth(),
+        south: map.getBounds().getSouth(),
+        east: map.getBounds().getEast(),
+        west: map.getBounds().getWest()
+    };
+    let url = `https://secure.geonames.org/wikipediaBoundingBoxJSON?north=${ext.north}&south=${ext.south}&east=${ext.east}&west=${ext.west}&username=feielp98&lang=de&maxRows=30`;
+    console.log(url);
+
+    let wiki = L.Util.jsonp(url).then(function(data){
+        //console.log(data.geonames);
+        for (let article of data.geonames){
+            let png ="";
+            // console.log(article.feature)
+            switch (article.feature){
+                case "city":
+                    png="city.png";
+                    break;
+                case "landmark":
+                    png="landmark.png";
+                    break;
+                case "waterbody":
+                    png="lake.png";
+                    break;
+                case "river":
+                    png="river.png";
+                    break;
+                case "mountain":
+                    png="mountains.png";
+                    break;
+                default:
+                    png="information.png";
+            }
+            console.log(png);
+
+            let mrk = L.marker([article.lat,article.lng], {
+                // icon: L.icon({
+                //     iconSize: [32, 37], //automatisches zentrieren, wenn Bildgröße bekannt
+                //     iconAnchor: [16, 37], //um Bild zu zentrieren
+                //     popupAnchor: [0, -37], //37 Pixel nach oben verschieben
+                //     iconUrl: "icons/restaurant.png"
+            }).addTo(overlay.wikipedia);
+            mrk.bindPopup(`
+                <small>${article.feature}</small>
+                <h3>${article.title} (${article.elevation}m)</h3>
+                <p>${article.summary}</p>
+                <a target="wikipedia" href="https://${article.wikipediaUrl}">Wikipedia Artikel</a>
+            `)
+            //console.log(article);
+        }
+    });
+});
+overlay.wikipedia.addTo(map);
+
+//http://api.geonames.org/wikipediaSearchJSON?q=london&maxRows=10&username=feielp98&lang=de&maxRows=30
+
+//city -> Tourism
+// landmark -> Tourism
+// waterbody -> Nature
+// river -> Nature
+// mountains -> Nature
+// Standardicon: Tourism -> information.png
+
+// Icon implementieren
