@@ -75,6 +75,9 @@ let drawEtappe = function(nr){
     
     gpx.on("loaded", function(evt){
         map.fitBounds(evt.target.getBounds());
+
+        controlElevation.clear(); //damit nicht immer dazugezeichnet wird, zuerst bestehendes Profil löschen
+        controlElevation.load(`gpx/AdlerwegEtappe${track}.gpx`);
     }).addTo(overlay.etappen);
     overlay.etappen.addTo(map);
 
@@ -123,3 +126,10 @@ let drawEinkehr = function (){
 };
 drawEinkehr(); //Funktion einmal aufrufen, damit sie ausgeführt wird
 overlay.einkehr.addTo(map);
+
+let controlElevation = L.control.elevation({
+    theme: "steelblue-theme", //wie das Profil ausschaut -> ist im Leaflet dokumentiert
+    detached: true, //außerhalb der Karte anzeigen
+    elevation: "#profile", //div im html ansteuern
+    followMarker: false
+}).addTo(map);
