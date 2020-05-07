@@ -128,8 +128,12 @@ drawEinkehr(); //Funktion einmal aufrufen, damit sie ausgeführt wird
 overlay.einkehr.addTo(map);
 
 let controlElevation = L.control.elevation({
-    theme: "steelblue-theme", //wie das Profil ausschaut -> ist im Leaflet dokumentiert
+    theme: "adler-theme", //wie das Profil ausschaut -> ist im Leaflet dokumentiert (oder über coustum und mit css stylen)
     detached: true, //außerhalb der Karte anzeigen
     elevation: "#profile", //div im html ansteuern
     followMarker: false
 }).addTo(map);
+
+L.control.scale({
+    imperial: false //nicht-metrische Werte weglassen
+}).addTo(map); //erzeugt einen Maßstab links unten bei der Karte
