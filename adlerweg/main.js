@@ -140,6 +140,8 @@ L.control.scale({
     imperial: false //nicht-metrische Werte weglassen
 }).addTo(map); //erzeugt einen Maßstab links unten bei der Karte
 
+let drawnMarkers = {};
+
 map.on("zoomend moveend", function (evt) {
     let ext = {
         north: map.getBounds().getNorth(),
@@ -153,6 +155,13 @@ map.on("zoomend moveend", function (evt) {
     let wiki = L.Util.jsonp(url).then(function (data) {
         //console.log(data.geonames);
         for (let article of data.geonames) {
+            let ll = `${article.lat}${article.lng}`;
+            if (drawnMarkers[ll]) {
+                continue;
+            } else {
+                drawnMarkers [ll] = true;
+            }
+
             let png = "";
             // console.log(article.feature)
             switch (article.feature) {
@@ -163,7 +172,7 @@ map.on("zoomend moveend", function (evt) {
                     png = "landmark.png";
                     break;
                 case "waterbody":
-                    png = "lake.png";
+                    png = "waterbody.png";
                     break;
                 case "river":
                     png = "river.png";
